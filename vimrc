@@ -82,11 +82,20 @@ au InsertLeave * match ExtraWhiteSpace /\s\+$/
 vmap <space> zf
 nmap <space> zd
 
+" Use jk to Esc files
 inoremap jk <Esc>
 inoremap Jk <Esc>
 inoremap jK <Esc>
 inoremap JK <Esc>
 
+" Make K the opposite of J
 nnoremap K i<CR><Esc>
 
+" Remove trailing whitespace
 nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
+
+" Leader maps
+let mapleader = ','
+
+map <leader><Space> :NERDTreeToggle<CR>
+map <leader><leader> :confirm w<CR>
