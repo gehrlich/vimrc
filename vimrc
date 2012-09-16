@@ -1,6 +1,10 @@
 " Don't emulate vi bugs
 set nocompatible
 
+" Pathogen stuff
+filetype off
+call pathogen#infect()
+
 " Fix filetype detection
 autocmd BufNewFile,BufRead *.tex set ft=tex
 
@@ -31,7 +35,8 @@ vnoremap Q gq
 set showmatch
 
 " Visual bells
-set visualbell
+"set visualbell
+set vb t_vb=
 
 " Always show ruler
 set ruler
@@ -76,3 +81,12 @@ au InsertLeave * match ExtraWhiteSpace /\s\+$/
 " Make lines collapsable
 vmap <space> zf
 nmap <space> zd
+
+inoremap jk <Esc>
+inoremap Jk <Esc>
+inoremap jK <Esc>
+inoremap JK <Esc>
+
+nnoremap K i<CR><Esc>
+
+nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
